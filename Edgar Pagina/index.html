@@ -1,0 +1,1270 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>4D Arquitectura + Diseño | Mérida</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== TODOS LOS ESTILOS ORIGINALES DE PC SE MANTIENEN IGUAL ===== */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,16,32,0.95);
+    z-index: 9999;
+    overflow-y: auto;
+  }
+  .modal-content {
+    padding: 80px;
+    color: white;
+  }
+  .modal-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  .modal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .modal-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.4s;
+    cursor: pointer;
+  }
+  .modal-grid img:hover {
+    transform: scale(1.05);
+  }
+  .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .project-overlay {
+    backdrop-filter: blur(4px);
+  }
+  .whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 999;
+    text-decoration: none;
+  }
+  .story {
+    padding: 120px 80px;
+    text-align: center;
+    background: white;
+  }
+  .story h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--navy);
+  }
+  .story p {
+    margin-top: 20px;
+    color: var(--gray);
+    max-width: 600px;
+    margin-inline: auto;
+    line-height: 1.8;
+  }
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243160;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --white: #ffffff;
+    --off-white: #f7f6f3;
+    --gray: #8a8a8a;
+    --light-gray: #e8e6e0;
+    --text: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+  section[id],
+  div[id],
+  footer[id] {
+    scroll-margin-top: 88px;
+  }
+
+  /* NAVBAR */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 32px rgba(26,39,68,0.10); }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 52px;
+    height: 52px;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .logo-text span:first-child {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+  }
+  .logo-text span:last-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+  }
+
+  .nav-contact {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-location {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .nav-location strong { color: var(--navy); }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a:hover { color: var(--gold); }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: 2px solid var(--navy);
+    transition: all 0.3s;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--navy);
+  }
+  .btn-gold {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+  .btn-gold:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  /* HERO */
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero {
+  min-height: 100svh;
+  height: auto;
+}
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,39,68,0.82) 0%, rgba(26,39,68,0.45) 50%, rgba(26,39,68,0.15) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat;
+    transform: scale(1.04);
+    animation: heroZoom 12s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.04); }
+    to   { transform: scale(1.00); }
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    max-width: 700px;
+    animation: fadeUp 1.2s 0.4s both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero h1 strong {
+    font-weight: 600;
+    font-style: normal;
+    display: block;
+  }
+  .hero-sub {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.75);
+    margin: 28px 0 48px;
+    line-height: 1.8;
+    max-width: 460px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-outline {
+    background: rgba(0,0,0,0.35);
+    color: white;
+    border: 1px solid white;
+    backdrop-filter: blur(6px);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .btn-outline:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+    z-index: 2;
+  }
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* SECTION SHARED */
+  section { padding: 100px 80px; }
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.1;
+    color: var(--navy);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* SERVICES */
+  .services {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .services-header p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--gray);
+    font-weight: 300;
+    max-width: 400px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.4s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover .service-icon { color: var(--gold); }
+  .service-card:hover h3 { color: var(--white); }
+  .service-card:hover p { color: rgba(255,255,255,0.6); }
+  .service-icon {
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 20px;
+    transition: color 0.4s;
+  }
+  .service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+    transition: color 0.4s;
+  }
+  .service-card p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--gray);
+    font-weight: 300;
+    transition: color 0.4s;
+  }
+
+  /* PROJECTS */
+  .projects { background: var(--white); }
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .project-card:hover img { transform: scale(1.06); }
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,39,68,0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+  }
+  .project-card:hover .project-overlay { opacity: 1; }
+  .project-overlay .tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .project-overlay h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .project-info {
+    padding: 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-info h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+  }
+  .project-info span {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+  .projects-cta {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  /* STATS */
+  .stats {
+    background: var(--navy);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    padding: 40px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 64px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  /* CTA + FORM */
+  .contact-section {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .contact-left {
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-left .section-title { margin-bottom: 20px; }
+  .contact-left p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 380px;
+  }
+  .contact-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .contact-features li {
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-features li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .contact-right {
+    background: var(--navy);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-right h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .contact-right .sub {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 16px 20px;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .btn-submit {
+    width: 100%;
+    margin-top: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 18px;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-submit:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+  .form-status {
+    min-height: 22px;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.72);
+  }
+  .form-status.success {
+    color: #9ee3b1;
+  }
+  .form-status.error {
+    color: #ffb3b3;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0f1929;
+    padding: 60px 80px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+  .footer-brand .logo { margin-bottom: 20px; }
+  .footer-brand p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    max-width: 260px;
+  }
+  .footer-contact {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-contact a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--gold); }
+  .footer-col h4 {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-bottom {
+    background: #0a1020;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* CASE STUDY (original) */
+  .case-study {
+    background: #0f1929;
+    color: white;
+    padding: 120px 80px;
+  }
+  .case-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .case-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .case-title em {
+    color: #c9a84c;
+  }
+  .case-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+  }
+  .case-data {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .case-images {
+    display: grid;
+    gap: 20px;
+  }
+  .case-images img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+  }
+  .case-images img:hover {
+    transform: scale(1.05);
+  }
+
+  /* ===== MEDIA QUERIES SOLO PARA MÓVIL ===== */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--navy);
+    z-index: 101;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    /* Navbar en móvil - arreglo definitivo */
+    nav { 
+      padding: 0 12px; 
+      height: 60px; 
+    }
+    .menu-toggle { 
+      display: block; 
+      order: 2;
+    }
+    /* Ocultar completamente el texto de ubicación y teléfono en móvil */
+    .nav-location { 
+      display: none !important; 
+    }
+    /* Reducir el logo en móvil */
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+    }
+    .logo-text span:first-child {
+      font-size: 9px;
+    }
+    .logo-text span:last-child {
+      font-size: 7px;
+    }
+    .logo {
+      gap: 6px;
+      order: 1;
+    }
+    /* Botón de contacto más pequeño y con texto ajustado */
+    .nav-contact {
+      order: 3;
+    }
+    .nav-contact .btn-primary { 
+      padding: 5px 10px; 
+      font-size: 8px; 
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    /* Menú desplegable */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 24px;
+      gap: 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--gold);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: none;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links a { font-size: 13px; }
+    
+    /* Hero en móvil */
+    .hero-content { padding: 0 20px; max-width: 100%; }
+    .hero h1 { font-size: 42px; }
+    .hero-sub { font-size: 12px; margin: 20px 0 28px; }
+    .hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+    .hero-cta .btn-primary, .hero-cta .btn-outline { text-align: center; }
+    
+    /* Secciones */
+    section { padding: 60px 20px; }
+    .services { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 28px 20px; }
+    
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { aspect-ratio: 4/3; }
+    .project-overlay { padding: 20px; }
+    
+    .stats { grid-template-columns: 1fr 1fr; padding: 40px 20px; gap: 28px; }
+    .stat-item { padding: 0; border-right: none; }
+    .stat-number { font-size: 44px; }
+    
+    .contact-section { grid-template-columns: 1fr; }
+    .contact-left { padding: 48px 20px; }
+    .contact-right { padding: 48px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    
+    .case-study { padding: 60px 20px; }
+    .case-container { grid-template-columns: 1fr; gap: 40px; }
+    .case-title { font-size: 32px; }
+    
+    footer { grid-template-columns: 1fr; padding: 48px 20px; gap: 40px; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 8px; padding: 16px 20px; }
+    
+    /* Modal en móvil */
+    .modal-content { padding: 40px 20px; }
+    .modal-content h2 { font-size: 28px; }
+    .modal-grid { grid-template-columns: 1fr; gap: 16px; }
+    .modal-grid img { height: auto; }
+    .close-btn { top: 20px; right: 20px; font-size: 28px; }
+    
+    .whatsapp { padding: 10px 16px; font-size: 11px; bottom: 16px; right: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .section-title { font-size: 28px; }
+    .hero-eyebrow { font-size: 7px; }
+    .service-card h3 { font-size: 11px; }
+    .project-overlay h3 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <svg class="logo-mark" viewBox="0 0 52 52" fill="none">
+      <rect width="52" height="52" fill="#1a2744"/>
+      <text x="5" y="36" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="white">4D</text>
+    </svg>
+    <div class="logo-text">
+      <span>ARQUITECTURA</span>
+      <span>+ DISEÑO</span>
+    </div>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio" class="active" data-scroll-target="inicio">Inicio</a></li>
+    <li><a href="#nosotros" data-scroll-target="nosotros">Sobre Nosotros</a></li>
+    <li><a href="#servicios" data-scroll-target="servicios">Servicios</a></li>
+    <li><a href="#proyectos" data-scroll-target="proyectos">Proyectos</a></li>
+  </ul>
+
+  <div class="nav-contact">
+    <div class="nav-location"><strong>Mérida</strong> &nbsp;·&nbsp; +52 999 127 5460</div>
+    <a href="#contacto" class="btn-primary">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Arquitectura y desarrollo en Mérida</div>
+    <h1>Diseñamos<br><em>espacios</em><br><strong>inteligentes</strong></h1>
+    <p class="hero-sub">Arquitectura funcional, construcción de calidad y desarrollo inmobiliario estratégico para proyectos residenciales y comerciales en el sureste de México.</p>
+    <div class="hero-cta">
+      <a href="#proyectos" class="btn-primary btn-gold">Descubre Nuestros Proyectos</a>
+      <a href="#contacto" class="btn-outline">Cotiza tu proyecto</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-header reveal">
+    <div class="section-label">Nuestras especialidades</div>
+    <h2 class="section-title">Soluciones <em>integrales</em><br>de arquitectura<br>y desarrollo</h2>
+    <p>Desde el concepto hasta la entrega, acompañamos cada etapa de tu proyecto con un equipo experto comprometido con la excelencia y la innovación.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">⬡</div>
+      <h3>Arquitectura</h3>
+      <p>Diseño arquitectónico funcional y estético que se adapta a tus necesidades, visión y terreno.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">◫</div>
+      <h3>Sistemas Fotovoltaícos</h3>
+      <p>Construimos proyectos residenciales y comerciales llave en mano, con los más altos estándares de calidad.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">⊞</div>
+      <h3>Gestión Inmobiliaria</h3>
+      <p>Gestionamos y desarrollamos inversiones inmobiliarias rentables y bien planificadas.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-icon">◈</div>
+      <h3>Diseño de Interiores</h3>
+      <p>Espacios interiores que equilibran estética contemporánea, confort y funcionalidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item reveal"><div class="stat-number">15+</div><div class="stat-label">Años de experiencia</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-number">200+</div><div class="stat-label">Proyectos entregados</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-number">98%</div><div class="stat-label">Clientes satisfechos</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-number">50M+</div><div class="stat-label">M² construidos</div></div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects" id="proyectos">
+  <div class="projects-header reveal">
+    <div><div class="section-label">Nuestro portafolio</div><h2 class="section-title">Proyectos <em>destacados</em></h2></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal" onclick="openModal(1)">
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Residencia Moderna">
+      <div class="project-overlay"><div class="tag">Residencial · 2024</div><h3>Casa Xcanatun</h3></div>
+    </div>
+    <div class="project-card reveal reveal-delay-1" onclick="openModal(2)">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Desarrollo Residencial">
+      <div class="project-overlay"><div class="tag">Desarrollo · 2024</div><h3>Desarrollo Residencial</h3></div>
+    </div>
+    <div class="project-card reveal reveal-delay-2" onclick="openModal(3)">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Oficina Corporativa">
+      <div class="project-overlay"><div class="tag">Corporativo · 2023</div><h3>Oficina Corporativa</h3></div>
+    </div>
+  </div>
+  <div class="projects-cta reveal">
+    <a href="#" class="btn-outline" id="openProjectsBtn">Ver más proyectos</a>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-study">
+  <div class="case-container">
+    <div class="case-text">
+      <div class="section-label">Proyecto destacado</div>
+      <h2 class="case-title">Residencia en <em>Temozón Norte</em></h2>
+      <p class="case-description">Diseñada para maximizar iluminación natural y ventilación cruzada, esta residencia combina materiales contemporáneos con una distribución funcional orientada al confort y la plusvalía.</p>
+      <div class="case-data">
+        <div><strong>Ubicación:</strong> Mérida, Yucatán</div>
+        <div><strong>Tipo:</strong> Residencial</div>
+        <div><strong>Superficie:</strong> 320 m²</div>
+      </div>
+      <a href="#contacto" class="btn-primary btn-gold">Cotizar proyecto similar →</a>
+    </div>
+    <div class="case-images">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Interior">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Exterior">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contacto">
+  <div class="contact-left reveal">
+    <div class="section-label">Hablemos</div>
+    <h2 class="section-title">¿Tienes un<br>proyecto <em>en mente?</em></h2>
+    <p>Cotiza con nosotros y lleva tu idea a la realidad. Nuestro equipo está listo para asesorarte en cada etapa de tu proyecto.</p>
+    <ul class="contact-features">
+      <li>Consulta inicial sin costo</li>
+      <li>Propuesta personalizada en 48 horas</li>
+      <li>Equipo multidisciplinario disponible</li>
+      <li>Acompañamiento desde el diseño hasta la entrega</li>
+    </ul>
+    <a href="tel:+529991275460" class="btn-primary">Contáctanos directamente →</a>
+  </div>
+  <div class="contact-right reveal reveal-delay-1">
+    <h3>Cotiza tu proyecto</h3>
+    <p class="sub">RESPUESTA EN MENOS DE 24 HORAS</p>
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><input type="text" id="name" name="name" placeholder="Nombre completo" required></div>
+        <div class="form-group"><input type="email" id="email" name="email" placeholder="Correo electrónico" required></div>
+      </div>
+      <div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Teléfono"></div>
+      <div class="form-group"><textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." required></textarea></div>
+      <button type="submit" class="btn-submit">Enviar mensaje →</button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="nosotros">
+  <div class="footer-brand">
+    <a href="#" class="logo" style="margin-bottom:20px;display:flex;">
+      <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+        <rect width="52" height="52" fill="#c9a84c"/>
+        <text x="5" y="36" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="#1a2744">4D</text>
+      </svg>
+      <div class="logo-text" style="margin-left:12px;">
+        <span style="color:white;">ARQUITECTURA</span>
+        <span style="color:#c9a84c;">+ DISEÑO</span>
+      </div>
+    </a>
+    <p>Estudio de arquitectura y desarrollo inmobiliario con más de 15 años transformando espacios en Mérida y el sureste de México.</p>
+    <div class="footer-contact">
+      <a href="tel:+529991254567">+52 999 127 5460</a>
+      <a href="mailto:info@4darquitectura.mx">info@4darquitectura.mx</a>
+      <a href="#">Mérida, Yucatán, México</a>
+    </div>
+  </div>
+  <div class="footer-col"><h4>Enlaces</h4><ul><li><a href="#">Inicio</a></li><li><a href="#">Sobre Nosotros</a></li><li><a href="#">Servicios</a></li><li><a href="#">Proyectos</a></li><li><a href="#">Contacto</a></li></ul></div>
+  <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#">Arquitectura</a></li><li><a href="#">Construcción</a></li><li><a href="#">Desarrollo Inmobiliario</a></li><li><a href="#">Diseño de Interiores</a></li><li><a href="#">Consultoría</a></li></ul></div>
+  <div class="footer-col"><h4>Síguenos</h4><div class="footer-social"><a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">@</a></div></div>
+</footer>
+<div class="footer-bottom"><p>© 2025 4D Arquitectura + Diseño. Todos los derechos reservados.</p><p>Diseñado con precisión en Mérida, Yucatán</p></div>
+
+<a href="https://wa.me/529991275460" target="_blank" class="whatsapp">WhatsApp</a>
+
+<!-- MODAL -->
+<div id="projectsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Todos nuestros proyectos</h2>
+    <div class="modal-grid" id="modalGrid"></div>
+  </div>
+</div>
+
+<script>
+  // Menú hamburguesa
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinksMob = document.getElementById('navLinks');
+  const navScrollLinks = document.querySelectorAll('.nav-links a[data-scroll-target]');
+
+  function scrollToSection(sectionId) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinksMob.classList.toggle('active');
+    });
+  }
+  // Scroll del menú + cierre en móvil
+  navScrollLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      navLinksMob.classList.remove('active');
+      scrollToSection(link.dataset.scrollTarget);
+    });
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Modal logic
+  const modal = document.getElementById('projectsModal');
+  const closeBtn = document.querySelector('.close-btn');
+  const openProjectsBtn = document.getElementById('openProjectsBtn');
+  const modalGrid = document.getElementById('modalGrid');
+
+  const allProjectsImages = [
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80",
+    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+    "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
+    "assets/project-architectural.svg"
+  ];
+
+  function renderModal() {
+    modalGrid.innerHTML = '';
+    allProjectsImages.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      modalGrid.appendChild(img);
+    });
+  }
+
+  window.openModal = (id) => {
+    renderModal();
+    modal.style.display = 'block';
+  };
+
+  if (openProjectsBtn) {
+    openProjectsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      renderModal();
+      modal.style.display = 'block';
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  // Form submit
+  window.handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = 'Completa nombre, correo y mensaje para continuar.';
+      status.className = 'form-status error';
+      return;
+    }
+
+    // Cambia este número para tus pruebas de WhatsApp
+    const whatsappNumber = '529991275460';
+    const whatsappMessage = [
+      'Hola, quiero cotizar un proyecto con 4D Arquitectura + Diseño.',
+      '',
+      `Nombre: ${name}`,
+      `Correo: ${email}`,
+      `Teléfono: ${phone || 'No proporcionado'}`,
+      'Proyecto:',
+      message
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    status.textContent = 'Abriendo WhatsApp con tu mensaje listo para enviar...';
+    status.className = 'form-status success';
+
+    window.open(whatsappUrl, '_blank', 'noopener');
+    form.reset();
+  };
+</script>
+</body>
+</html>
