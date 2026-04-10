@@ -527,6 +527,80 @@
     margin-top: 60px;
   }
 
+  /* SOLAR */
+  .solar-section {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%),
+      var(--navy);
+    color: var(--white);
+  }
+  .solar-header {
+    max-width: 760px;
+    margin-bottom: 60px;
+  }
+  .solar-section .section-title {
+    color: var(--white);
+  }
+  .solar-subtitle {
+    margin-top: 20px;
+    max-width: 560px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.68);
+    font-weight: 300;
+  }
+  .solar-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 28px;
+  }
+  .solar-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.14);
+    padding: 36px 32px;
+    min-height: 190px;
+  }
+  .solar-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+  }
+  .solar-card p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.68);
+    font-weight: 300;
+  }
+  .solar-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .solar-photo {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(255,255,255,0.05);
+  }
+  .foto-solar {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease, opacity 0.3s ease;
+  }
+  .solar-photo:hover .foto-solar {
+    transform: scale(1.04);
+  }
+  .solar-cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+
   /* STATS */
   .stats {
     background: var(--navy);
@@ -904,6 +978,16 @@
     .projects-grid { grid-template-columns: 1fr; }
     .project-card { aspect-ratio: 4/3; }
     .project-overlay { padding: 20px; }
+    .solar-benefits { grid-template-columns: 1fr; }
+    .solar-gallery { grid-template-columns: 1fr; }
+    .solar-card {
+      min-height: auto;
+      padding: 28px 24px;
+    }
+    .solar-cta .btn-primary {
+      width: 100%;
+      text-align: center;
+    }
     
     .stats { grid-template-columns: 1fr 1fr; padding: 40px 20px; gap: 28px; }
     .stat-item { padding: 0; border-right: none; }
@@ -937,6 +1021,13 @@
     .hero-eyebrow { font-size: 7px; }
     .service-card h3 { font-size: 11px; }
     .project-overlay h3 { font-size: 16px; }
+  }
+
+  @media (max-width: 900px) and (min-width: 769px) {
+    .solar-benefits,
+    .solar-gallery {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>
 </head>
@@ -1045,6 +1136,43 @@
   </div>
   <div class="projects-cta reveal">
     <a href="#" class="btn-outline" id="openProjectsBtn">Ver más proyectos</a>
+  </div>
+</section>
+
+<!-- SOLAR -->
+<section class="solar-section">
+  <div class="solar-header reveal">
+    <div class="section-label">Energía solar</div>
+    <h2 class="section-title">Sistemas <em>fotovoltaicos</em> residenciales</h2>
+    <p class="solar-subtitle">Instalaciones llave en mano en Mérida y el sureste de México</p>
+  </div>
+
+  <div class="solar-benefits">
+    <article class="solar-card reveal">
+      <h3>Instalación certificada</h3>
+      <p>Montaje profesional con procesos seguros, supervisión técnica y entrega lista para operar.</p>
+    </article>
+    <article class="solar-card reveal reveal-delay-1">
+      <h3>Paneles de alta eficiencia</h3>
+      <p>Sistemas diseñados para maximizar generación, durabilidad y rendimiento en climas cálidos.</p>
+    </article>
+    <article class="solar-card reveal reveal-delay-2">
+      <h3>Ahorro desde el primer mes</h3>
+      <p>Soluciones pensadas para reducir consumo eléctrico y mejorar el retorno de inversión desde el inicio.</p>
+    </article>
+  </div>
+
+  <div class="solar-gallery">
+    <figure class="solar-photo reveal"><img class="foto-solar" src="assets/solar-1.jpg" alt="Sistema fotovoltaico residencial 1"></figure>
+    <figure class="solar-photo reveal reveal-delay-1"><img class="foto-solar" src="assets/solar-2.jpg" alt="Sistema fotovoltaico residencial 2"></figure>
+    <figure class="solar-photo reveal reveal-delay-2"><img class="foto-solar" src="assets/solar-3.jpg" alt="Sistema fotovoltaico residencial 3"></figure>
+    <figure class="solar-photo reveal"><img class="foto-solar" src="assets/solar-4.jpg" alt="Sistema fotovoltaico residencial 4"></figure>
+    <figure class="solar-photo reveal reveal-delay-1"><img class="foto-solar" src="assets/solar-5.jpg" alt="Sistema fotovoltaico residencial 5"></figure>
+    <figure class="solar-photo reveal reveal-delay-2"><img class="foto-solar" src="assets/solar-6.jpg" alt="Sistema fotovoltaico residencial 6"></figure>
+  </div>
+
+  <div class="solar-cta reveal">
+    <a href="https://wa.me/529991275460" class="btn-primary btn-gold" target="_blank" rel="noopener noreferrer">Cotiza tu instalación</a>
   </div>
 </section>
 
