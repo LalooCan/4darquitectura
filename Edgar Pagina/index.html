@@ -10,17 +10,17 @@
 :root {
   --blue:      #2B50B0;
   --blue-dark: #1F3F8F;
-  --blue-50:   #EEF1FB;
+  --blue-50:   #DDE4F5;
   --gray:      #919EBB;
-  --dark:      #1A1E2E;
-  --dark-2:    #0F1322;
-  --offwhite:  #F7F6F3;
-  --cream:     #FAF8F3;
-  --light:     #E8EBF4;
+  --dark:      #0E1221;
+  --dark-2:    #080C18;
+  --offwhite:  #D8DCE8;
+  --cream:     #F0EDE6;
+  --light:     #C8CEDF;
   --gold:      #C9A84C;
   --gold-light:#E5C77A;
-  --text:      #1A1E2E;
-  --muted:     #6B7280;
+  --text:      #0E1221;
+  --muted:     #4A5568;
   --white:     #FFFFFF;
 }
 
@@ -40,25 +40,28 @@ section[id], div[id], footer[id] { scroll-margin-top: 72px; }
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(250,248,243,.96);
+  background: rgba(240,237,230,.97);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--light);
+  border-bottom: 2px solid var(--light);
   padding: 0 48px;
   display: flex; align-items: center; justify-content: space-between;
   height: 72px;
   transition: box-shadow .3s;
 }
-nav.scrolled { box-shadow: 0 2px 24px rgba(26,30,46,.08); }
+nav.scrolled { box-shadow: 0 2px 24px rgba(14,18,33,.14); }
 
 .logo {
   display: flex; align-items: center; gap: 14px;
   text-decoration: none;
 }
 .logo-mark {
-  width: 48px; height: 48px;
+  width: 56px; height: 56px;
   display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
-.logo-mark img { width: 100%; height: auto; display: block; }
+.logo-mark img {
+  width: 100%; height: auto; display: block;
+}
 .logo-text {
   display: flex; flex-direction: column; line-height: 1.15;
   font-family: 'Montserrat', sans-serif;
@@ -155,7 +158,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(26,30,46,.08); }
   transform: scale(1.04);
   animation: heroZoom 14s ease-out forwards;
 }
-@keyframes heroZoom { from{transform:scale(1.04)} to{transform:scale(1)} }
+@keyframes heroZoom { from{transform:scale(1.04)} to{transform:scale(1.01)} }
 
 /* Blueprint grid overlay */
 .hero::before {
@@ -164,8 +167,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(26,30,46,.08); }
 /* Diagonal accent */
 .hero::after {
   content: '';
-  position: absolute; top: 0; right: 0; z-index: 1;
-  width: 60%; height: 100%;
+  position: absolute; inset: 0; z-index: 1;
   background:
     radial-gradient(ellipse at top right, rgba(43,80,176,.35) 0%, transparent 60%),
     radial-gradient(ellipse at bottom left, rgba(15,19,34,.6) 0%, transparent 70%);
@@ -174,7 +176,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(26,30,46,.08); }
 
 .hero-content {
   position: relative; z-index: 2;
-  padding: 120px 80px 140px;
+  padding: 120px 64px 140px;
   max-width: 760px;
   animation: fadeUp 1.2s .3s both;
 }
@@ -312,12 +314,14 @@ section { padding: 80px 80px; }
 .service-card {
   background: var(--white);
   border: 1px solid var(--light);
+  border-top: 3px solid var(--blue-50);
   padding: 40px 32px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: all .35s;
   border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(14,18,33,.10);
 }
 .service-card::before {
   content: '';
@@ -328,8 +332,9 @@ section { padding: 80px 80px; }
 }
 .service-card:hover {
   border-color: var(--blue);
+  border-top-color: var(--blue);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(43,80,176,.12);
+  box-shadow: 0 16px 48px rgba(43,80,176,.22);
 }
 .service-card:hover::before { height: 100%; }
 .service-icon-wrap {
@@ -378,7 +383,7 @@ section { padding: 80px 80px; }
 
 /* ─────────────────────  STATS  ───────────────────── */
 .stats {
-  background: var(--dark);
+  background: #1E2A4A;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -388,8 +393,8 @@ section { padding: 80px 80px; }
 .stats::before {
   content: ''; position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(43,80,176,.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(43,80,176,.1) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 .stat-item {
@@ -802,7 +807,34 @@ footer::before {
 }
 .footer-brand { position: relative; }
 .footer-brand .logo { margin-bottom: 24px; }
-.footer-brand .logo .logo-mark { background: white; border-radius: 8px; padding: 4px; }
+.footer-logo-banner {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  border-radius: 14px;
+  padding: 16px 32px;
+  border-left: 5px solid var(--blue);
+  margin-bottom: 28px;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.footer-logo-banner::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 130px; height: 130px;
+  background: var(--blue-50);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.footer-logo-banner .logo-mark { width: 60px; height: 60px; }
+.footer-logo-banner .logo-mark img { mix-blend-mode: multiply; }
+.footer-logo-banner .logo-text { text-align: left; }
+.footer-logo-banner .lt-1 { color: var(--dark) !important; font-size: 15px !important; letter-spacing: .2em !important; }
+.footer-logo-banner .lt-2 { color: var(--blue) !important; font-size: 11px !important; letter-spacing: .3em !important; }
 .footer-brand .logo .lt-1 { color: var(--white); }
 .footer-brand .logo .lt-2 { color: var(--gold); }
 .footer-brand p {
@@ -1038,7 +1070,7 @@ footer::before {
 <!-- NAVBAR -->
 <nav id="navbar">
   <a href="#" class="logo">
-    <div class="logo-mark"><img src="assets/logo-4d.png" alt="4D Logo"></div>
+    <div class="logo-mark"><img src="assets/logo-4d-transparent.png" alt="4D Logo"></div>
     <div class="logo-text">
       <span class="lt-1">4D</span>
       <span class="lt-2">Arquitectura + Diseño</span>
@@ -1327,7 +1359,7 @@ footer::before {
 <!-- FOOTER -->
 <footer id="nosotros">
   <div class="footer-brand">
-    <a href="#" class="logo">
+    <a href="#" class="logo footer-logo-banner">
       <div class="logo-mark"><img src="assets/logo-4d.png" alt="4D Logo"></div>
       <div class="logo-text">
         <span class="lt-1">4D</span>
@@ -1364,19 +1396,22 @@ footer::before {
   <div class="footer-col">
     <h4>Síguenos</h4>
     <div class="footer-social">
-      <a href="#" class="social-link">f</a>
+      <a href="https://web.facebook.com/profile.php?id=61588896320016" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
       <a href="#" class="social-link">in</a>
       <a href="#" class="social-link">@</a>
     </div>
   </div>
 </footer>
 <div class="footer-bottom">
-  <p>© 2025 4D Arquitectura + Diseño. Todos los derechos reservados.</p>
+  <p>© 2026 4D Arquitectura + Diseño. Todos los derechos reservados.</p>
   <p>Diseñado con precisión en Mérida, Yucatán</p>
 </div>
 
 <a href="https://wa.me/529991275460" target="_blank" class="whatsapp">
-  💬 WhatsApp
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  WhatsApp
 </a>
 
 <!-- MODAL -->
