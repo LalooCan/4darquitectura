@@ -425,15 +425,47 @@ section { padding: 80px 80px; }
 .projects { background: var(--cream); }
 .projects-header {
   display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 56px; flex-wrap: wrap; gap: 24px;
+  margin-bottom: 32px; flex-wrap: wrap; gap: 24px;
 }
 .projects-header p {
   font-size: 14px; color: var(--muted); max-width: 320px;
 }
+
+/* Filter tabs */
+.filter-bar {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.filter-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: 2px solid var(--light);
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .22s;
+}
+.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+.filter-btn.active {
+  background: var(--blue); border-color: var(--blue);
+  color: var(--white);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+/* card hide/show animation */
+.project-card {
+  transition: opacity .3s ease, transform .3s ease, all .8s;
+}
+.project-card.hidden {
+  display: none;
 }
 .project-card {
   position: relative;
@@ -593,6 +625,90 @@ section { padding: 80px 80px; }
   margin-top: 56px;
   position: relative; z-index: 1;
 }
+
+/* ─────────────────────  FAQ  ───────────────────── */
+.faq-section {
+  background: var(--offwhite);
+  padding: 80px 80px;
+}
+.faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.faq-header .section-label {
+  justify-content: center;
+}
+.faq-header .section-label::before { display: none; }
+.faq-header .section-label::after {
+  content: ''; display: block; width: 28px; height: 2px; background: var(--blue);
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--light);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow .25s;
+}
+.faq-item.open {
+  box-shadow: 0 6px 28px rgba(43,80,176,.10);
+  border-color: var(--blue);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-question span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -.2px;
+  transition: color .2s;
+}
+.faq-item.open .faq-question span { color: var(--blue); }
+.faq-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .25s, transform .35s;
+}
+.faq-icon svg { width: 14px; height: 14px; color: var(--blue); transition: color .25s; }
+.faq-item.open .faq-icon { background: var(--blue); transform: rotate(45deg); }
+.faq-item.open .faq-icon svg { color: var(--white); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+}
+.faq-answer-inner {
+  padding: 0 28px 24px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  border-top: 1px solid var(--light);
+  padding-top: 18px;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
 
 /* ─────────────────────  CASE STUDY  ───────────────────── */
 .case-study {
@@ -788,6 +904,51 @@ section { padding: 80px 80px; }
 }
 .form-status.success { color: #6BD893; }
 .form-status.error { color: #FF8B8B; }
+
+/* ─────────────────────  MAP  ───────────────────── */
+.map-section {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+.map-section iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+  filter: grayscale(100%) invert(92%) sepia(20%) hue-rotate(180deg) brightness(0.85) contrast(1.1);
+  opacity: .9;
+}
+.map-overlay-card {
+  position: absolute;
+  top: 50%; left: 80px;
+  transform: translateY(-50%);
+  background: var(--white);
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 16px 48px rgba(14,18,33,.18);
+  border-left: 5px solid var(--blue);
+  min-width: 260px;
+  z-index: 2;
+}
+.map-overlay-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; font-size: 16px;
+  color: var(--dark); letter-spacing: -.3px;
+  margin-bottom: 4px;
+}
+.map-overlay-card .map-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--blue);
+  font-weight: 600; margin-bottom: 16px;
+}
+.map-detail {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--muted);
+  margin-bottom: 8px;
+}
+.map-detail svg { width: 15px; height: 15px; color: var(--blue); flex-shrink: 0; }
+.map-detail:last-child { margin-bottom: 0; }
 
 /* ─────────────────────  FOOTER  ───────────────────── */
 footer {
@@ -1034,6 +1195,12 @@ footer::before {
   .solar-benefits { grid-template-columns: 1fr; }
   .solar-gallery { grid-template-columns: 1fr 1fr; }
 
+  .faq-section { padding: 56px 24px; }
+  .faq-question span { font-size: 13px; }
+  .map-section { height: 520px; }
+  .map-overlay-card { left: 16px; right: 16px; top: auto; bottom: 20px; transform: none; min-width: unset; }
+  .filter-bar { gap: 6px; }
+  .filter-btn { font-size: 10px; padding: 8px 14px; }
   .case-study { padding: 60px 24px; }
   .case-container { grid-template-columns: 1fr; gap: 40px; }
   .case-data { grid-template-columns: 1fr 1fr; }
@@ -1184,10 +1351,10 @@ footer::before {
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat-item reveal"><div class="stat-number">15+</div><div class="stat-label">Años de experiencia</div></div>
-  <div class="stat-item reveal reveal-delay-1"><div class="stat-number">200+</div><div class="stat-label">Proyectos entregados</div></div>
-  <div class="stat-item reveal reveal-delay-2"><div class="stat-number">98%</div><div class="stat-label">Clientes satisfechos</div></div>
-  <div class="stat-item reveal reveal-delay-3"><div class="stat-number">50M+</div><div class="stat-label">M² construidos</div></div>
+  <div class="stat-item reveal"><div class="stat-number" data-count="15" data-suffix="+">0</div><div class="stat-label">Años de experiencia</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-count="200" data-suffix="+">0</div><div class="stat-label">Proyectos entregados</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-count="98" data-suffix="%">0</div><div class="stat-label">Clientes satisfechos</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-count="50" data-suffix="M+">0</div><div class="stat-label">M² construidos</div></div>
 </div>
 
 <!-- PROJECTS -->
@@ -1199,8 +1366,17 @@ footer::before {
     </div>
     <p>Cada proyecto es una pieza única diseñada para reflejar la visión, necesidades y estilo de vida de nuestros clientes.</p>
   </div>
-  <div class="projects-grid">
-    <div class="project-card reveal" onclick="openModal(1)">
+
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="todos">Todos</button>
+    <button class="filter-btn" data-filter="residencial">Residencial</button>
+    <button class="filter-btn" data-filter="comercial">Comercial</button>
+    <button class="filter-btn" data-filter="solar">Solar</button>
+    <button class="filter-btn" data-filter="interiores">Interiores</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+    <div class="project-card reveal" data-category="residencial" onclick="openModal(1)">
       <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Casa Xcanatun">
       <div class="project-overlay">
         <div class="tag">Residencial · 2024</div>
@@ -1208,25 +1384,46 @@ footer::before {
         <div class="project-arrow">Ver proyecto →</div>
       </div>
     </div>
-    <div class="project-card reveal reveal-delay-1" onclick="openModal(2)">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Desarrollo Residencial">
+    <div class="project-card reveal reveal-delay-1" data-category="residencial" onclick="openModal(2)">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Desarrollo Temozón">
       <div class="project-overlay">
-        <div class="tag">Desarrollo · 2024</div>
+        <div class="tag">Residencial · 2024</div>
         <h3>Desarrollo Temozón</h3>
         <div class="project-arrow">Ver proyecto →</div>
       </div>
     </div>
-    <div class="project-card reveal reveal-delay-2" onclick="openModal(3)">
+    <div class="project-card reveal reveal-delay-2" data-category="comercial" onclick="openModal(3)">
       <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Oficina Corporativa">
       <div class="project-overlay">
-        <div class="tag">Corporativo · 2023</div>
+        <div class="tag">Comercial · 2023</div>
         <h3>Oficina Corporativa</h3>
         <div class="project-arrow">Ver proyecto →</div>
       </div>
     </div>
-  </div>
-  <div class="projects-cta reveal">
-    <a href="#" class="btn-outline" id="openProjectsBtn">Ver más proyectos →</a>
+    <div class="project-card reveal" data-category="interiores" onclick="openModal(4)">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Interiorismo Residencial">
+      <div class="project-overlay">
+        <div class="tag">Interiores · 2024</div>
+        <h3>Suite Privada Mérida</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-1" data-category="solar" onclick="openModal(5)">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Sistema Solar">
+      <div class="project-overlay">
+        <div class="tag">Solar · 2024</div>
+        <h3>Sistema 12 kWp Residencial</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-2" data-category="comercial" onclick="openModal(6)">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Plaza Comercial">
+      <div class="project-overlay">
+        <div class="tag">Comercial · 2023</div>
+        <h3>Plaza Montejo Centro</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1313,6 +1510,59 @@ footer::before {
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que necesitas <span class="accent">saber</span></h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Cuánto tiempo toma un proyecto desde el diseño hasta la entrega?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Depende del tipo y escala del proyecto. Una residencia de tamaño medio puede tomar entre 8 y 14 meses, incluyendo diseño, permisos y construcción. Proyectos más pequeños como remodelaciones pueden resolverse en 2 a 4 meses. Al inicio de cada proyecto entregamos un cronograma detallado para que tengas visibilidad total del proceso.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Trabajan fuera de Mérida o solo en Yucatán?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Nuestra base está en Mérida pero hemos ejecutado proyectos en todo el sureste de México: Campeche, Cancún, Playa del Carmen, Tulum y Ciudad de México. Para proyectos fuera del estado evaluamos el alcance y logística caso por caso. ¡Contáctanos y lo platicamos!</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Hacen remodelaciones o solo obra nueva?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Trabajamos los dos. Remodelaciones parciales (cocinas, baños, fachadas), ampliaciones y obra nueva desde cero. También nos especializamos en reconversión de espacios comerciales y rehabilitación de casas antiguas conservando su valor patrimonial.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Qué incluye el servicio llave en mano?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">El servicio llave en mano abarca todo: diseño arquitectónico y de interiores, gestión de permisos y licencias, construcción, instalaciones eléctricas e hidráulicas, acabados y supervisión de obra. Tú nos entregas el terreno y nosotros te entregamos el proyecto terminado y listo para habitar.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-4">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Ofrecen financiamiento o planes de pago?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Manejamos esquemas de pago por etapas de obra para que la inversión fluya de manera ordenada. También trabajamos con clientes que ya tienen crédito hipotecario o de autoconstrucción con instituciones bancarias. En la consulta inicial te presentamos las opciones que mejor se adaptan a tu situación.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <div class="contact-section" id="contacto">
   <div class="contact-left reveal">
@@ -1353,6 +1603,31 @@ footer::before {
       <button type="submit" class="btn-submit">Enviar mensaje →</button>
       <p class="form-status" id="formStatus" aria-live="polite"></p>
     </form>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59943.54489585451!2d-89.65351!3d20.96666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5671f411db70b5%3A0xf64f97ef985a2f1a!2sM%C3%A9rida%2C%20Yucat%C3%A1n!5e0!3m2!1ses!2smx!4v1715700000000"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación 4D Arquitectura en Mérida, Yucatán">
+  </iframe>
+  <div class="map-overlay-card">
+    <h4>4D Arquitectura + Diseño</h4>
+    <p class="map-sub">Mérida, Yucatán · México</p>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Mérida, Yucatán, México
+    </div>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +52 999 127 5460
+    </div>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lun – Vie · 9:00 – 18:00
+    </div>
   </div>
 </div>
 
@@ -1503,6 +1778,73 @@ footer::before {
   }
   window.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
+  });
+
+  // ── Animated counters ──
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        animateCounter(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-number[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ── Gallery filters ──
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const match = filter === 'todos' || card.dataset.category === filter;
+        if (match) {
+          card.classList.remove('hidden');
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(16px)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity .35s ease, transform .35s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 
   window.handleSubmit = (event) => {
