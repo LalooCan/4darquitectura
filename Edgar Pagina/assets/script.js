@@ -79,52 +79,66 @@ const openProjectsBtn = document.getElementById('openProjectsBtn');
 const modalGrid = document.getElementById('modalGrid');
 
 const projectsData = [
-  { id: 1, title: 'Casa Xcanatun', category: 'Residencial', year: '2024',
-    description: 'Residencia contemporánea de 280 m² diseñada para maximizar la ventilación cruzada y la iluminación natural en el clima yucateco.',
+  { id: 1, title: 'Residencia Contemporánea', category: 'residencial', year: '2024',
+    description: 'Residencia unifamiliar con fachada en piedra natural, pérgola de madera y cochera con arco. Diseño que integra materiales locales con arquitectura contemporánea para una presencia única.',
     images: [
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+      'assets/ext-fachada-noche.jpg',
+      'assets/ext-fachada-dia.jpg',
+      'assets/int-recamara-calida.jpg',
     ]
   },
-  { id: 2, title: 'Desarrollo Temozón', category: 'Residencial', year: '2024',
-    description: 'Conjunto residencial de 12 unidades con acabados premium, áreas comunes y sistema solar compartido.',
+  { id: 2, title: 'Sala · Comedor Contemporáneo', category: 'interiores', year: '2024',
+    description: 'Diseño de sala-comedor en concepto abierto con mesa de mármol negro, iluminación arquitectónica lineal y vista panorámica. Integración perfecta entre espacios sociales.',
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+      'assets/int-sala-comedor.jpg.jpeg',
+      'assets/int-comedor-1.jpg.jpeg',
+      'assets/int-comedor-2.jpg.jpeg',
     ]
   },
-  { id: 3, title: 'Oficina Corporativa', category: 'Comercial', year: '2023',
-    description: 'Espacio de trabajo de 450 m² con concepto open office, salas de juntas privadas y terraza ejecutiva.',
+  { id: 3, title: 'Sala de Entretenimiento', category: 'interiores', year: '2024',
+    description: 'Sala de entretenimiento privada con mesa de billar, bar integrado, lounge y sistema de iluminación escénica con araña circular. Diseño para el confort y el estilo de vida premium.',
     images: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      'assets/int-entretenimiento.jpg.jpeg',
+      'assets/int-vestidor.jpg.jpeg',
+      'assets/int-comedor-2.jpg.jpeg',
     ]
   },
-  { id: 4, title: 'Suite Privada Mérida', category: 'Interiores', year: '2024',
-    description: 'Diseño de interiores completo de suite principal: materiales naturales, iluminación escénica y mobiliario a medida.',
+  { id: 4, title: 'Suite · Recámaras', category: 'interiores', year: '2024',
+    description: 'Diseño integral de recámaras con paneles de listones en madera, iluminación indirecta LED, TV integrada y acabados de alta gama en distintos estilos: cálido, oscuro y minimalista.',
     images: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
+      'assets/int-recamara-calida.jpg',
+      'assets/int-recamara-clara.jpg',
+      'assets/int-recamara-oscura.jpg',
+      'assets/int-recamara-suite.jpg',
     ]
   },
-  { id: 5, title: 'Sistema 12 kWp Residencial', category: 'Solar', year: '2024',
-    description: 'Instalación fotovoltaica llave en mano con 28 paneles de alta eficiencia. Ahorro del 85% en consumo eléctrico mensual.',
+  { id: 5, title: 'Baños · Diseño de Interiores', category: 'interiores', year: '2024',
+    description: 'Baños de lujo con dos estilos contrastantes: mármol negro con tina independiente y ambiente dark, y baño spa en tonos neutros con mueble de madera y regadera de lluvia.',
     images: [
-      'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80',
-      'https://images.unsplash.com/photo-1566093097221-ac2335b09e70?w=800&q=80',
-      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80',
+      'assets/int-bano-negro.jpg',
+      'assets/int-bano-claro.jpg',
+      'assets/int-recamara-suite.jpg',
     ]
   },
-  { id: 6, title: 'Plaza Montejo Centro', category: 'Comercial', year: '2023',
-    description: 'Remodelación integral de plaza comercial de 1,200 m² con nueva fachada, circulaciones y diseño de locales.',
+  { id: 6, title: 'Sistema Solar · Residencial A', category: 'solar', year: '2024',
+    description: 'Instalación fotovoltaica residencial llave en mano. Paneles de alta eficiencia orientados para maximizar captación solar en el clima de Mérida.',
     images: [
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+      'assets/solar-1.jpg',
+      'assets/solar-3.jpg',
+    ]
+  },
+  { id: 7, title: 'Sistema Solar · Residencial B', category: 'solar', year: '2024',
+    description: 'Sistema fotovoltaico con instalación en azotea plana. Proceso de montaje supervisado por técnicos certificados con entrega llave en mano.',
+    images: [
+      'assets/solar-2.jpg',
+    ]
+  },
+  { id: 8, title: 'Sistema Solar · Residencial C', category: 'solar', year: '2024',
+    description: 'Instalación fotovoltaica en vivienda de dos niveles. Configuración optimizada para el consumo del hogar con retorno de inversión desde el primer mes.',
+    images: [
+      'assets/solar-4.jpg',
+      'assets/solar-5.jpg',
+      'assets/solar-6.jpg',
     ]
   },
 ];
@@ -256,28 +270,41 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-number[data-count]').forEach(el => counterObserver.observe(el));
 
 // ── Gallery filters ──
+const isProjectsPage = document.body.classList.contains('projects-page');
+const MAX_GRID = isProjectsPage ? Infinity : 6;
+
+function showCard(card) {
+  card.classList.remove('hidden');
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(16px)';
+  requestAnimationFrame(() => {
+    card.style.transition = 'opacity .35s ease, transform .35s ease';
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  });
+}
+
+function applyFilter(filter) {
+  const cards = [...document.querySelectorAll('.project-card')];
+  let shown = 0;
+  cards.forEach(card => {
+    const match = filter === 'todos' || card.dataset.category === filter;
+    if (!match) { card.classList.add('hidden'); return; }
+    if (filter === 'todos' && shown >= MAX_GRID) { card.classList.add('hidden'); return; }
+    showCard(card);
+    shown++;
+  });
+}
+
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      const match = filter === 'todos' || card.dataset.category === filter;
-      if (match) {
-        card.classList.remove('hidden');
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(16px)';
-        requestAnimationFrame(() => {
-          card.style.transition = 'opacity .35s ease, transform .35s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        });
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+    applyFilter(btn.dataset.filter);
   });
 });
+
+applyFilter('todos');
 
 // ── FAQ accordion ──
 document.querySelectorAll('.faq-question').forEach(btn => {
