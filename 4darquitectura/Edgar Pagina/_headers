@@ -1,0 +1,27 @@
+/*
+  # Evita que el sitio sea embebido en iframes (clickjacking)
+  X-Frame-Options: DENY
+
+  # Evita que el navegador adivine el tipo de contenido (MIME sniffing)
+  X-Content-Type-Options: nosniff
+
+  # Fuerza HTTPS por 1 año, incluye subdominios
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Controla qué información de referencia se envía
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Restringe acceso a APIs del navegador
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self), payment=(), usb=(), bluetooth=()
+
+  # Content Security Policy — script-src SIN 'unsafe-inline' (todo JS está en archivos externos)
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com data: blob:; frame-src https://www.google.com https://challenges.cloudflare.com; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://region1.google-analytics.com https://challenges.cloudflare.com; worker-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; report-uri /.netlify/functions/csp-report
+
+  # Evita que Chrome envíe datos a Google para sugerencias
+  X-DNS-Prefetch-Control: off
+
+  # Elimina el header que revela que usas Netlify
+  X-Powered-By: ""
+
+  # CSP Report-Only — monitorea violaciones sin bloquear (ideal para auditoría)
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; frame-src https://www.google.com https://challenges.cloudflare.com; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://region1.google-analytics.com https://challenges.cloudflare.com; report-uri /.netlify/functions/csp-report

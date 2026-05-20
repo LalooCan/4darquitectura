@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4D Arquitectura + Diseño · Mérida, Yucatán</title>
+<meta name="description" content="Estudio de arquitectura, desarrollo inmobiliario y energía solar en Mérida, Yucatán. Más de 15 años y 200 proyectos residenciales y comerciales en el sureste de México.">
+<meta name="keywords" content="arquitectura Mérida, desarrollo inmobiliario Yucatán, energía solar Mérida, constructora Mérida, paneles solares Yucatán, arquitectos Mérida">
+<meta name="author" content="4D Arquitectura + Diseño">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://4darquitecturaa.netlify.app/">
+
+<!-- Security meta tags -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=()">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://4darquitecturaa.netlify.app/">
+<meta property="og:title" content="4D Arquitectura + Diseño · Mérida, Yucatán">
+<meta property="og:description" content="Soluciones integrales de arquitectura, desarrollo inmobiliario y energía solar en el sureste de México. Proyectos residenciales y comerciales llave en mano.">
+<meta property="og:image" content="https://4darquitecturaa.netlify.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="4D Arquitectura + Diseño">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="4D Arquitectura + Diseño · Mérida, Yucatán">
+<meta name="twitter:description" content="Arquitectura, desarrollo inmobiliario y energía solar en Mérida. Más de 200 proyectos entregados en el sureste de México.">
+<meta name="twitter:image" content="https://4darquitecturaa.netlify.app/assets/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/logo-4d.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo-4d.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://4darquitecturaa.netlify.app/",
+  "name": "4D Arquitectura + Diseño",
+  "description": "Estudio de arquitectura, desarrollo inmobiliario y sistemas fotovoltaicos en Mérida, Yucatán.",
+  "url": "https://4darquitecturaa.netlify.app/",
+  "telephone": "+529991275460",
+  "email": "info@4darquitectura.mx",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mérida",
+    "addressRegion": "Yucatán",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 20.9674,
+    "longitude": -89.6237
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://web.facebook.com/profile.php?id=61588896320016"
+  ],
+  "priceRange": "$$",
+  "image": "https://4darquitecturaa.netlify.app/assets/og-image.jpg"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- Cloudflare Turnstile — reemplaza data-sitekey con tu Site Key -->
+<!-- Obtén tus keys en: dash.cloudflare.com → Turnstile → Add site -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+
+<!-- Google Analytics GA4 (bootstrap movido a assets/script.js para CSP estricto) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5KDWVJ421E"></script>
+
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark"><img src="assets/logo-4d-transparent.png" alt="4D Logo"></div>
+    <div class="logo-text">
+      <span class="lt-2">Arquitectura + Diseño</span>
+    </div>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio" class="active" data-scroll-target="inicio">Inicio</a></li>
+    <li><a href="#servicios" data-scroll-target="servicios">Servicios</a></li>
+    <li><a href="#proyectos" data-scroll-target="proyectos">Proyectos</a></li>
+    <li><a href="#solar" data-scroll-target="solar">Energía Solar</a></li>
+  </ul>
+
+  <div class="nav-contact">
+    <div class="nav-location"><strong>Mérida</strong> &nbsp;·&nbsp; +52 999 127 5460</div>
+    <a href="#contacto" class="btn-primary">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Arquitectura · Diseño · Energía Solar</div>
+    <h1>
+      Diseñamos<br>
+      <span class="hl-blue">espacios</span><br>
+      <span class="hl-gold">inteligentes.</span>
+    </h1>
+    <p class="hero-sub">Arquitectura contemporánea, construcción de calidad y soluciones fotovoltaicas integrales para proyectos residenciales y comerciales en el sureste de México.</p>
+    <div class="hero-cta">
+      <a href="#proyectos" class="btn-primary btn-gold">Descubre nuestros proyectos <span>→</span></a>
+      <a href="#contacto" class="btn-hero-light">Cotiza tu proyecto</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><div class="hm-num">15+</div><div class="hm-label">Años</div></div>
+    <div class="hero-meta-item"><div class="hm-num">200+</div><div class="hm-label">Proyectos</div></div>
+    <div class="hero-meta-item"><div class="hm-num">98%</div><div class="hm-label">Satisfacción</div></div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-header reveal">
+    <div class="section-label">Nuestras especialidades</div>
+    <h2 class="section-title">Soluciones <span class="accent">integrales</span><br>de arquitectura<br>y desarrollo</h2>
+    <p>Desde el concepto hasta la entrega, acompañamos cada etapa de tu proyecto con un equipo experto comprometido con la excelencia y la innovación.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2zM10 21v-4h4v4"/>
+        </svg>
+      </div>
+      <h3>Arquitectura</h3>
+      <p>Diseño arquitectónico funcional y estético que se adapta a tus necesidades, visión y terreno.</p>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2" x2="12" y2="5"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="4.93" y1="4.93" x2="6.95" y2="6.95"/>
+          <line x1="17.05" y1="17.05" x2="19.07" y2="19.07"/>
+          <line x1="2" y1="12" x2="5" y2="12"/>
+          <line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.93" y1="19.07" x2="6.95" y2="17.05"/>
+          <line x1="17.05" y1="6.95" x2="19.07" y2="4.93"/>
+        </svg>
+      </div>
+      <h3>Sistemas Fotovoltaicos</h3>
+      <p>Sistemas interconectados a la red y aislados</p>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="7" width="18" height="14" rx="1"/>
+          <path d="M3 11h18M8 7V3h8v4"/>
+        </svg>
+      </div>
+      <h3>Gestión Inmobiliaria</h3>
+      <p>Gestionamos y desarrollamos inversiones inmobiliarias rentables y bien planificadas.</p>
+      <div class="service-arrow">→</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item reveal"><div class="stat-number" data-count="15" data-suffix="+">0</div><div class="stat-label">Años de experiencia</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-count="200" data-suffix="+">0</div><div class="stat-label">Proyectos entregados</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-count="98" data-suffix="%">0</div><div class="stat-label">Clientes satisfechos</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-count="50" data-suffix="M+">0</div><div class="stat-label">M² construidos</div></div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects" id="proyectos">
+  <div class="projects-header reveal">
+    <div>
+      <div class="section-label">Nuestro portafolio</div>
+      <h2 class="section-title">Proyectos <span class="accent">destacados</span></h2>
+    </div>
+    <p>Cada proyecto es una pieza única diseñada para reflejar la visión, necesidades y estilo de vida de nuestros clientes.</p>
+  </div>
+
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="todos">Todos</button>
+    <button class="filter-btn" data-filter="residencial">Residencial</button>
+    <button class="filter-btn" data-filter="solar">Solar</button>
+    <button class="filter-btn" data-filter="interiores">Interiores</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+    <div class="project-card reveal" data-category="residencial" data-project-id="1">
+      <img src="assets/ext-fachada-noche.jpg" alt="Residencia Contemporánea">
+      <div class="project-overlay">
+        <div class="tag">Residencial · 2024</div>
+        <h3>Residencia Contemporánea</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-1" data-category="interiores" data-project-id="2">
+      <img src="assets/int-sala-comedor.jpg.jpeg" alt="Sala Comedor Contemporáneo">
+      <div class="project-overlay">
+        <div class="tag">Interiores · 2024</div>
+        <h3>Sala · Comedor Contemporáneo</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-2" data-category="solar" data-project-id="6">
+      <img src="assets/solar-1.jpg" alt="Sistema Solar Residencial A">
+      <div class="project-overlay">
+        <div class="tag">Solar · 2024</div>
+        <h3>Sistema Solar · Residencial A</h3>
+        <div class="project-arrow">Ver proyecto →</div>
+      </div>
+    </div>
+  </div>
+  <div class="projects-cta">
+    <a href="proyectos.html" class="btn-outline">Ver todos los proyectos →</a>
+  </div>
+</section>
+
+<!-- SOLAR -->
+<section class="solar-section" id="solar">
+  <div class="solar-header reveal">
+    <div class="section-label">Energía solar</div>
+    <h2 class="section-title">Sistemas <span class="accent-gold">fotovoltaicos</span><br>residenciales</h2>
+    <p class="solar-subtitle">Instalaciones llave en mano en Mérida y el sureste de México. Ahorra hasta 80% en tu recibo de luz con sistemas diseñados para nuestro clima.</p>
+  </div>
+
+  <div class="solar-benefits">
+    <article class="solar-card reveal">
+      <div class="solar-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12l2 2 4-4M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <h3>Instalación certificada</h3>
+      <p>Montaje profesional con procesos seguros, supervisión técnica y entrega lista para operar.</p>
+    </article>
+    <article class="solar-card reveal reveal-delay-1">
+      <div class="solar-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="6" width="18" height="14" rx="1"/>
+          <path d="M3 12h18M9 6v14M15 6v14"/>
+        </svg>
+      </div>
+      <h3>Paneles de alta eficiencia</h3>
+      <p>Sistemas diseñados para maximizar generación, durabilidad y rendimiento en climas cálidos.</p>
+    </article>
+    <article class="solar-card reveal reveal-delay-2">
+      <div class="solar-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+        </svg>
+      </div>
+      <h3>Ahorro desde el primer mes</h3>
+      <p>Reduce tu consumo eléctrico hasta 80% y obtén retorno de inversión desde el primer ciclo.</p>
+    </article>
+  </div>
+
+  <div class="solar-gallery">
+    <figure class="solar-photo reveal"><img class="foto-solar" src="assets/solar-1.jpg" alt="Sistema fotovoltaico residencial 1"></figure>
+    <figure class="solar-photo reveal reveal-delay-1"><img class="foto-solar" src="assets/solar-2.jpg" alt="Sistema fotovoltaico residencial 2"></figure>
+    <figure class="solar-photo reveal reveal-delay-2"><img class="foto-solar" src="assets/solar-3.jpg" alt="Sistema fotovoltaico residencial 3"></figure>
+    <figure class="solar-photo reveal"><img class="foto-solar" src="assets/solar-4.jpg" alt="Sistema fotovoltaico residencial 4"></figure>
+    <figure class="solar-photo reveal reveal-delay-1"><img class="foto-solar" src="assets/solar-5.jpg" alt="Sistema fotovoltaico residencial 5"></figure>
+    <figure class="solar-photo reveal reveal-delay-2"><img class="foto-solar" src="assets/solar-6.jpg" alt="Sistema fotovoltaico residencial 6"></figure>
+  </div>
+
+  <div class="solar-cta reveal">
+    <a href="https://wa.me/529991275460" class="btn-primary btn-gold" target="_blank" rel="noopener noreferrer">Cotiza tu instalación →</a>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-study">
+  <div class="case-container">
+    <div class="case-text reveal">
+      <div class="section-label">Proyecto destacado</div>
+      <h2 class="section-title">Residencia en<br><span class="accent">Temozón Norte</span></h2>
+      <p class="case-description">Diseñada para maximizar iluminación natural y ventilación cruzada, esta residencia combina materiales contemporáneos con una distribución funcional orientada al confort y la plusvalía.</p>
+      <div class="case-data">
+        <div class="case-data-item">
+          <div class="cd-label">Ubicación</div>
+          <div class="cd-val">Mérida, Yucatán</div>
+        </div>
+        <div class="case-data-item">
+          <div class="cd-label">Tipo</div>
+          <div class="cd-val">Residencial</div>
+        </div>
+        <div class="case-data-item">
+          <div class="cd-label">Superficie</div>
+          <div class="cd-val">320 m²</div>
+        </div>
+      </div>
+      <a href="#contacto" class="btn-primary">Cotizar proyecto similar →</a>
+    </div>
+    <div class="case-images reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Interior">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Exterior">
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que necesitas <span class="accent">saber</span></h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Cuánto tiempo toma un proyecto desde el diseño hasta la entrega?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Depende del tipo y escala del proyecto. Una residencia de tamaño medio puede tomar entre 8 y 14 meses, incluyendo diseño, permisos y construcción. Proyectos más pequeños como remodelaciones pueden resolverse en 2 a 4 meses. Al inicio de cada proyecto entregamos un cronograma detallado para que tengas visibilidad total del proceso.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Trabajan fuera de Mérida o solo en Yucatán?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Nuestra base está en Mérida pero hemos ejecutado proyectos en todo el sureste de México: Campeche, Cancún, Playa del Carmen, Tulum y Ciudad de México. Para proyectos fuera del estado evaluamos el alcance y logística caso por caso. ¡Contáctanos y lo platicamos!</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Hacen remodelaciones o solo obra nueva?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Trabajamos los dos. Remodelaciones parciales (cocinas, baños, fachadas), ampliaciones y obra nueva desde cero. También nos especializamos en reconversión de espacios comerciales y rehabilitación de casas antiguas conservando su valor patrimonial.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Qué incluye el servicio llave en mano?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">El servicio llave en mano abarca todo: diseño arquitectónico, gestión de permisos y licencias, construcción, instalaciones eléctricas e hidráulicas, acabados y supervisión de obra. Tú nos entregas el terreno y nosotros te entregamos el proyecto terminado y listo para habitar.</div></div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-4">
+        <button class="faq-question" aria-expanded="false">
+          <span>¿Ofrecen financiamiento o planes de pago?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Manejamos esquemas de pago por etapas de obra para que la inversión fluya de manera ordenada. También trabajamos con clientes que ya tienen crédito hipotecario o de autoconstrucción con instituciones bancarias. En la consulta inicial te presentamos las opciones que mejor se adaptan a tu situación.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section" id="mapSection">
+  <div class="map-placeholder" id="mapPlaceholder">
+    <div class="map-placeholder-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+    </div>
+    <div class="map-placeholder-text">
+      <h4>4D Arquitectura + Diseño</h4>
+      <p>Mérida, Yucatán · México</p>
+    </div>
+    <button class="map-activate-btn" id="mapActivateBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Ver mapa interactivo
+    </button>
+    <p class="map-privacy-note">Al activar el mapa, Google cargará cookies de terceros</p>
+  </div>
+  <div class="map-overlay-card">
+    <h4>4D Arquitectura + Diseño</h4>
+    <p class="map-sub">Mérida, Yucatán · México</p>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Mérida, Yucatán, México
+    </div>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +52 999 127 5460
+    </div>
+    <div class="map-detail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lun – Vie · 9:00 – 18:00
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contacto">
+  <div class="contact-left reveal">
+    <div class="section-label">Hablemos</div>
+    <h2 class="section-title">¿Tienes un<br>proyecto <span class="accent">en mente?</span></h2>
+    <p>Cotiza con nosotros y lleva tu idea a la realidad. Nuestro equipo está listo para asesorarte en cada etapa.</p>
+    <ul class="contact-features">
+      <li>Consulta inicial sin costo</li>
+      <li>Propuesta personalizada en 48 horas</li>
+      <li>Equipo multidisciplinario</li>
+      <li>Acompañamiento desde el diseño hasta la entrega</li>
+    </ul>
+    <div class="contact-info-list">
+      <a href="tel:+529991275460" class="contact-info-row">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+        +52 999 127 5460
+      </a>
+      <a href="mailto:info@4darquitectura.mx" class="contact-info-row">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        info@4darquitectura.mx
+      </a>
+      <a href="#" class="contact-info-row">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        Mérida, Yucatán · México
+      </a>
+    </div>
+  </div>
+  <div class="contact-right reveal reveal-delay-1">
+    <h3>Cotiza tu proyecto</h3>
+    <p class="sub">Respuesta en menos de 24 horas</p>
+    <form id="contactForm" autocomplete="on">
+      <!-- Honeypot: invisible para humanos, los bots lo llenan y el envío se bloquea -->
+      <div class="honeypot-field" aria-hidden="true">
+        <input type="text" name="website" id="honeypot" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-row">
+        <div class="form-group"><input type="text" id="name" name="name" placeholder="Nombre completo" required></div>
+        <div class="form-group"><input type="email" id="email" name="email" placeholder="Correo electrónico" required></div>
+      </div>
+      <div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Teléfono"></div>
+      <div class="form-group"><textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." required></textarea></div>
+      <!-- Turnstile invisible: reemplaza data-sitekey con tu Site Key pública -->
+      <div class="cf-turnstile"
+        id="cfTurnstile"
+        data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+        data-callback="onTurnstileSuccess"
+        data-expired-callback="onTurnstileExpired"
+        data-error-callback="onTurnstileError"
+        data-size="invisible">
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Enviar mensaje →</button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="nosotros">
+  <div class="footer-brand">
+    <a href="#" class="logo footer-logo-banner">
+      <div class="logo-mark"><img src="assets/logo-4d.png" alt="4D Logo"></div>
+      <div class="logo-text">
+        <span class="lt-2">Arquitectura + Diseño</span>
+      </div>
+    </a>
+    <p>Estudio de arquitectura y desarrollo inmobiliario con más de 15 años transformando espacios en Mérida y el sureste de México.</p>
+    <div class="footer-contact">
+      <a href="tel:+529991275460">📞 +52 999 127 5460</a>
+      <a href="mailto:info@4darquitectura.mx">✉ info@4darquitectura.mx</a>
+      <a href="#">📍 Mérida, Yucatán, México</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Enlaces</h4>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#solar">Energía Solar</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Servicios</h4>
+    <ul>
+      <li><a href="#">Arquitectura</a></li>
+      <li><a href="#">Construcción</a></li>
+      <li><a href="#">Energía Solar</a></li>
+      <li><a href="#">Consultoría</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Síguenos</h4>
+    <div class="footer-social">
+      <a href="https://web.facebook.com/profile.php?id=61588896320016" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+      <!-- Agrega tu usuario de Instagram: href="https://instagram.com/TU_USUARIO" -->
+      <a href="https://wa.me/529991275460" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 4D Arquitectura + Diseño. Todos los derechos reservados.</p>
+  <p>Diseñado con precisión en Mérida, Yucatán</p>
+</div>
+
+<a href="https://wa.me/529991275460" target="_blank" class="whatsapp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  WhatsApp
+</a>
+
+<!-- MODAL -->
+<div id="projectsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Todos nuestros proyectos</h2>
+    <div class="modal-grid" id="modalGrid"></div>
+  </div>
+</div>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>
