@@ -1,15 +1,3 @@
-// ── Meta Pixel bootstrap ──
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2507344896361151');
-fbq('track', 'PageView');
-
 // ── Google Analytics bootstrap ──
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
@@ -481,6 +469,7 @@ window.handleSubmit = async (event) => {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       name, email, message, phone: phone || 'No proporcionado',
     });
+    fbq('track', 'Lead');
     sessionStorage.setItem('4d_last_send', Date.now().toString());
     status.textContent = '¡Mensaje enviado! Te contactamos en menos de 24 horas.';
     status.className = 'form-status success';
