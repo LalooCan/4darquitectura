@@ -4,6 +4,31 @@ function gtag(){ dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-5KDWVJ421E');
 
+// ── Meta Pixel bootstrap ──
+const META_PIXEL_ID = '2507344896361151';
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', META_PIXEL_ID);
+fbq('track', 'PageView');
+
+// ── Conversion tracking (GA4 + Meta Pixel) ──
+document.addEventListener('click', (e) => {
+  const waLink = e.target.closest('a[href*="wa.me"]');
+  if (waLink) {
+    gtag('event', 'contact_whatsapp', { link_text: waLink.textContent.trim() });
+    fbq('track', 'Contact');
+    return;
+  }
+  const ctaLink = e.target.closest('a[href="#contacto"]');
+  if (ctaLink) {
+    gtag('event', 'select_content', { content_type: 'cta_cotizar', item_id: ctaLink.textContent.trim() });
+    fbq('trackCustom', 'CTAClick', { cta: ctaLink.textContent.trim() });
+  }
+});
+
 // ── Scroll progress bar ──
 const progressBar = document.getElementById('scrollProgress');
 function updateProgress() {
@@ -469,6 +494,7 @@ window.handleSubmit = async (event) => {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       name, email, message, phone: phone || 'No proporcionado',
     });
+    gtag('event', 'generate_lead', { form_id: 'contactForm' });
     fbq('track', 'Lead');
     sessionStorage.setItem('4d_last_send', Date.now().toString());
     status.textContent = '¡Mensaje enviado! Te contactamos en menos de 24 horas.';
