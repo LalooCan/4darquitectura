@@ -229,7 +229,7 @@ section { padding: 80px 80px; }
 .solar-section .section-title { color: var(--white); }
 .solar-section .section-title .accent-gold { color: var(--gold); }
 .solar-subtitle { margin-top: 24px; max-width: 600px; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.7); font-weight: 400; }
-.solar-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; position: relative; z-index: 1; }
+.solar-benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 56px; position: relative; z-index: 1; }
 .solar-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 36px 28px; min-height: 200px; transition: all .3s; position: relative; overflow: hidden; }
 .solar-card:hover { border-color: rgba(201,168,76,.4); background: rgba(201,168,76,.04); transform: translateY(-3px); }
 .solar-card-icon { width: 44px; height: 44px; background: rgba(201,168,76,.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
@@ -417,6 +417,7 @@ footer::before { content: ''; position: absolute; bottom: -200px; left: -100px; 
 /* RESPONSIVE */
 @media (max-width: 1180px) {
   .services { grid-template-columns: 1fr; gap: 40px; }
+  .solar-benefits { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 968px) {
